@@ -1,0 +1,257 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction page</title>
+    <style>
+        body{
+            {% comment %} background-image: url(" {% static 'DiabetesPrediction/images/img2.webp' %} "); {% endcomment %}
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .main{
+            position: fixed;
+            top: 1%;
+            left: 5%;
+            width: 80%;
+            height: 78%;
+            background-color: #ffffff;
+            border-radius: 10px;
+            align-items: center;
+            padding: 5%;
+        }
+        h1{
+            color: #0086b3;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        input[type=submit]{
+            background-color: #4dc3ff;
+            border: 2px;
+            color: white;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button[type="submit"] {
+            background-color: #4dc3ff; /* Màu nền */
+            color: white; /* Màu chữ */
+            padding: 10px 20px; /* Kích thước padding */
+            border: none; /* Loại bỏ viền */
+            border-radius: 5px; /* Độ cong góc */
+            cursor: pointer; /* Con trỏ */
+            text-align: center; /* Căn chỉnh văn bản vào giữa */
+            text-decoration: none; /* Loại bỏ gạch chân */
+            display: inline-block; /* Hiển thị là khối inline */
+            font-size: 16px; /* Kích thước chữ */
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #1a8cff; /* Màu nền khi di chuột qua */
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div align='center' class="main">
+        <h1>Welcom my prediction system</h1>
+        <h1>Please enter the following information</h1>
+        <form action="result">
+            <table>
+                <tr>
+                    <td align="right">Gender</td>
+                    <td align="left">
+                        <select name="gender">
+                            <option value=1>Male</option>
+                            <option value=0>Female</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Senior Citizen</td>
+                    <td align="left">
+                        <select name="senior_citizen">
+                            <option value=0>0</option>
+                            <option value=1>1</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Partner</td>
+                    <td align="left">
+                        <select name="partner">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Dependents</td>
+                    <td align="left">
+                        <select name="dependents">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Tenure</td>
+                    <td align="left"><input type="number" name="tenure"></td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Phone Service</td>
+                    <td align="left">
+                        <select name="phone_service">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Multiple Lines</td>
+                    <td align="left">
+                        <select name="multiple_lines">
+                            <option value=0>No phone service</option>
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Internet Service</td>
+                    <td align="left">
+                        <select name="internet_service">
+                            <option value="DSL">DSL</option>
+                            <option value="Fiber optic">Fiber optic</option>
+                            <option value="No">No</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Online Security</td>
+                    <td align="left">
+                        <select name="online_security">
+                            <option value=0>No internet service</option>
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Online Backup</td>
+                    <td align="left">
+                        <select name="online_backup">
+                            <option value=0>No internet service</option>
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Device Protection</td>
+                    <td align="left">
+                        <select name="device_protection">
+                            <option value=0>No internet service</option>
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Tech Support</td>
+                    <td align="left">
+                        <select name="tech_support">
+                            <option value=0>No internet service</option>
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Streaming TV</td>
+                    <td align="left">
+                        <select name="streaming_tv">
+                            <option value=0>No internet service</option>
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Streaming Movies</td>
+                    <td align="left">
+                        <select name="streaming_movies">
+                            <option value=0>No internet service</option>
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Contract</td>
+                    <td align="left">
+                        <select name="contract">
+                            <option value="Month-to-month">Month-to-month</option>
+                            <option value="One year">One year</option>
+                            <option value="Two year">Two year</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Paperless Billing</td>
+                    <td align="left">
+                        <select name="paperless_billing">
+                            <option value=0>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Payment Method</td>
+                    <td align="left">
+                        <select name="payment_method">
+                            <option value="Electronic check">Electronic check</option>
+                            <option value="Mailed check">Mailed check</option>
+                            <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                            <option value="Credit card (automatic)">Credit card (automatic)</option>
+                        </select>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Monthly Charges</td>
+                    <td align="left"><input type="number" name="monthly_charges" step="0.01"></td>
+                </tr>
+    
+                <tr>
+                    <td align="right">Total Charges</td>
+                    <td align="left"><input type="number" name="total_charges" step="0.01"></td>
+                </tr>
+            </table>
+            <button type="submit">
+        </form>
+        Predict: {{ result }}
+    </div>    
+</body>
+</html>

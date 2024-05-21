@@ -1,0 +1,32 @@
+from django.db import models
+
+class Customer(models.Model):
+    gender = models.BooleanField()
+    senior_citizen = models.BooleanField()
+    partner = models.BooleanField()
+    dependents = models.BooleanField()
+    tenure = models.FloatField()
+    phone_service = models.BooleanField()
+    multiple_lines = models.BooleanField()
+    online_security = models.BooleanField()
+    online_backup = models.BooleanField()
+    device_protection = models.BooleanField()
+    tech_support = models.BooleanField()
+    streaming_tv = models.BooleanField()
+    streaming_movies = models.BooleanField()
+    paperless_billing = models.BooleanField()
+    monthly_charges = models.FloatField()
+    total_charges = models.FloatField()
+    internet_service_dsl = models.BooleanField()
+    internet_service_fiber_optic = models.BooleanField()
+    internet_service_no = models.BooleanField()
+    contract_month_to_month = models.BooleanField()
+    contract_one_year = models.BooleanField()
+    contract_two_year = models.BooleanField()
+    payment_method_bank_transfer_auto = models.BooleanField()
+    payment_method_credit_card_auto = models.BooleanField()
+    payment_method_electronic_check = models.BooleanField()
+    payment_method_mailed_check = models.BooleanField()
+
+    def __str__(self):
+        return str(self.id)
